@@ -1,0 +1,15 @@
+
+-- Drop old key constraint
+-- alter table customer drop primary key;
+-- alter table product drop primary key;
+-- alter table buy drop primary key;
+
+-- Add primary constraint
+alter table customer add primary key (c_cid);
+alter table product add primary key (p_pid);
+
+-- Add FK-PK references
+alter table buy add constraint buy_fk1 foreign key (b_cid) references customer (c_cid);
+alter table buy add constraint buy_fk2 foreign key (b_pid) references product (p_pid);
+
+
